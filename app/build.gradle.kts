@@ -82,6 +82,7 @@ dependencies {
     implementation(libs.kotlin.coroutines)
     implementation(libs.kotlin.datetime)
     implementation(libs.timber)
+    implementation(libs.palette)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

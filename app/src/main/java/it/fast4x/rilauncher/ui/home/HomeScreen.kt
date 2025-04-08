@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import it.fast4x.rilauncher.R
+import it.fast4x.rilauncher.typography
 
 @Composable
 fun HomeScreen(){
@@ -20,6 +21,11 @@ fun HomeScreen(){
     ){
         Text(
             text = stringResource(id = R.string.app_name),
+            fontStyle = typography().xxxl.fontStyle,
+            fontSize = typography().xxxl.fontSize,
+            fontWeight = typography().xxxl.fontWeight,
+            fontFamily = typography().xxxl.fontFamily,
+            letterSpacing = typography().xxxl.letterSpacing,
             color = Color.White,
             modifier = Modifier.align(Alignment.Center)
         )
