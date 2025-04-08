@@ -1,0 +1,55 @@
+[versions]
+agp = "8.9.1"
+kotlin = "2.0.21"
+coreKtx = "1.15.0"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.0"
+material = "1.12.0"
+activity = "1.10.1"
+constraintlayout = "2.2.1"
+
+compose = "1.7.8"
+compose-activity = "1.10.1"
+compose-shimmer = "1.3.2"
+
+material3 = "1.3.1"
+
+coroutine = "1.9.0"
+datetime = "0.6.0"
+
+timber = "5.0.1"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+
+#Compose
+compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "compose" }
+compose-ui = {group = "androidx.compose.ui", name = "ui", version.ref = "compose"}
+compose-ui-util = {group = "androidx.compose.ui", name = "ui-util", version.ref = "compose"}
+compose-ui-graphics-android = {group = "androidx.compose.ui", name = "ui-graphics-android", version.ref = "compose"}
+compose-ripple = {group = "androidx.compose.material", name = "material-ripple", version.ref = "compose"}
+compose-animation = {group = "androidx.compose.animation", name = "animation", version.ref = "compose"}
+compose-activity = {group = "androidx.activity", name = "activity-compose", version.ref = "compose-activity"}
+compose-shimmer = {group = "com.valentinilk.shimmer", name = "compose-shimmer", version.ref = "compose-shimmer"}
+
+kotlin-coroutines = {group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutine"}
+kotlin-datetime = {group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "datetime"}
+
+material3 = {group = "androidx.compose.material3", name = "material3-android", version.ref = "material3"}
+
+timber = {group = "com.jakewharton.timber", name = "timber", version.ref = "timber"}
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+
