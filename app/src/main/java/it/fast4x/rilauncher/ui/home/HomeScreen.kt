@@ -43,6 +43,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import it.fast4x.rilauncher.R
+import it.fast4x.rilauncher.tabIndex
 import it.fast4x.rilauncher.typography
 import it.fast4x.rilauncher.ui.components.ScaffoldContainer
 import kotlinx.coroutines.launch
@@ -89,7 +90,20 @@ fun HomeScreen(){
 //        }
 //    }
 
-    ScaffoldContainer()
+    ScaffoldContainer(
+        tabIndex = tabIndex()
+    ) {
+        Text(
+            text = stringResource(id = R.string.app_name),
+            fontStyle = typography().xxxl.fontStyle,
+            fontSize = typography().xxxl.fontSize,
+            fontWeight = typography().xxxl.fontWeight,
+            fontFamily = typography().xxxl.fontFamily,
+            letterSpacing = typography().xxxl.letterSpacing,
+            color = Color.White,
+            modifier = Modifier.align(Alignment.Center)
+        )
+    }
 
 
 

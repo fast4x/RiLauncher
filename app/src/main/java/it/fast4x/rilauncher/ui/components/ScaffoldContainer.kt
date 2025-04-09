@@ -2,8 +2,11 @@ package it.fast4x.rilauncher.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.text.BasicText
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.DrawerValue
@@ -20,14 +23,22 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import it.fast4x.rilauncher.R
+import it.fast4x.rilauncher.colorPalette
+import it.fast4x.rilauncher.enums.MenuTabs
 import it.fast4x.rilauncher.typography
 import it.fast4x.rilauncher.ui.home.MenuItems
+import it.fast4x.rilauncher.ui.styling.semiBold
 import kotlinx.coroutines.launch
 
 @Composable
-fun ScaffoldContainer(){
+fun ScaffoldContainer(
+    tabIndex: Int,
+    content: @Composable BoxScope.() -> Unit,
+){
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
     ModalNavigationDrawer(
@@ -39,7 +50,7 @@ fun ScaffoldContainer(){
                 modifier = Modifier.width(100.dp)
             ) {
                 NavigationRail(
-                    tabIndex = 0,
+                    tabIndex = tabIndex,
                     onTabIndexChanged = { }
                 ) { item ->
                     MenuItems(item)
@@ -62,24 +73,22 @@ fun ScaffoldContainer(){
                 )
             }
         ) { contentPadding ->
-            // Screen content
             contentPadding.calculateTopPadding()
             Box(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(Color.Black)
             ){
-                Text(
-                    text = stringResource(id = R.string.app_name),
-                    fontStyle = typography().xxxl.fontStyle,
-                    fontSize = typography().xxxl.fontSize,
-                    fontWeight = typography().xxxl.fontWeight,
-                    fontFamily = typography().xxxl.fontFamily,
-                    letterSpacing = typography().xxxl.letterSpacing,
-                    color = Color.White,
-                    modifier = Modifier.align(Alignment.Center)
+                BasicText(
+                    text = MenuTabs.titleOf(tabIndex),
+                    style = TextStyle(
+                        fontSize = typography().xl.semiBold.fontSize,
+                        fontWeight = typography().xl.semiBold.fontWeight,
+                        color = colorPalette().text,
+                    ),
+                    modifier = Modifier.align(Alignment.TopEnd).padding(end = 12.dp),
                 )
-
+                content()
             }
         }
     }

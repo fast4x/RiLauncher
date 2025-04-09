@@ -18,6 +18,7 @@ const val useSystemFontKey = "useSystemFont"
 const val applyFontPaddingKey = "applyFontPadding"
 const val fontTypeKey = "fontType"
 const val navigationBarTypeKey = "navigationBarType"
+const val tabIndexKey = "tabIndex"
 
 
 
