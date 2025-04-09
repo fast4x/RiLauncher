@@ -22,8 +22,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import it.fast4x.rilauncher.R
-import it.fast4x.rilauncher.enums.NavRoutes
 import it.fast4x.rilauncher.typography
+import it.fast4x.rilauncher.ui.home.MenuItems
 import kotlinx.coroutines.launch
 
 @Composable
@@ -42,12 +42,7 @@ fun ScaffoldContainer(){
                     tabIndex = 0,
                     onTabIndexChanged = { }
                 ) { item ->
-                    item(0, "Shortcuts", R.drawable.ic_launcher_foreground, NavRoutes.Shortcuts)
-                    item(1, "Apps", R.drawable.ic_launcher_foreground, NavRoutes.Apps)
-                    item(2, "Calls", R.drawable.ic_launcher_foreground, NavRoutes.Calls)
-                    item(3, "Messages", R.drawable.ic_launcher_foreground, NavRoutes.Messages)
-                    item(4, "Reminders", R.drawable.ic_launcher_foreground, NavRoutes.Reminders)
-                    item(5, "Settings", R.drawable.ic_launcher_foreground, NavRoutes.Settings)
+                    MenuItems(item)
                 }
             }
         },
