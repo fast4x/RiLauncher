@@ -27,6 +27,7 @@ import androidx.compose.ui.layout.layout
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import it.fast4x.rilauncher.enums.NavRoutes
 import it.fast4x.rilauncher.enums.NavigationBarType
 import it.fast4x.rilauncher.typography
 import it.fast4x.rilauncher.ui.styling.LocalAppearance
@@ -40,7 +41,7 @@ import it.fast4x.rilauncher.utils.rememberPreference
 inline fun NavigationRail(
     tabIndex: Int,
     crossinline onTabIndexChanged: (Int) -> Unit,
-    content: @Composable ColumnScope.(@Composable (Int, String, Int) -> Unit) -> Unit,
+    content: @Composable ColumnScope.(@Composable (Int, String, Int, NavRoutes) -> Unit) -> Unit,
 ) {
     val (colorPalette, typography) = LocalAppearance.current
 
@@ -60,7 +61,7 @@ inline fun NavigationRail(
             ) {
                 val transition = updateTransition(targetState = tabIndex, label = null)
 
-                content { index, text, icon ->
+                content { index, text, icon, route ->
 
                     val textColor by transition.animateColor(label = "") {
                         if (it == index) colorPalette.text else colorPalette.textDisabled
