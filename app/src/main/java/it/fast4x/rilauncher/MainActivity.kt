@@ -34,18 +34,18 @@ import it.fast4x.rilauncher.enums.ColorPaletteMode
 import it.fast4x.rilauncher.enums.ColorPaletteName
 import it.fast4x.rilauncher.enums.FontType
 import it.fast4x.rilauncher.enums.ThumbnailRoundness
-import it.fast4x.rilauncher.ui.home.HomeScreen
 import it.fast4x.rilauncher.ui.styling.Appearance
 import it.fast4x.rilauncher.ui.styling.LocalAppearance
-import it.fast4x.rilauncher.utils.colorPaletteModeKey
-import it.fast4x.rilauncher.utils.getEnum
-import it.fast4x.rilauncher.utils.preferences
-import it.fast4x.rilauncher.utils.rememberPreference
 import it.fast4x.rilauncher.ui.styling.colorPaletteOf
 import it.fast4x.rilauncher.ui.styling.typographyOf
 import it.fast4x.rilauncher.utils.applyFontPaddingKey
+import it.fast4x.rilauncher.utils.colorPaletteModeKey
 import it.fast4x.rilauncher.utils.colorPaletteNameKey
+import it.fast4x.rilauncher.utils.enableLayoutDirectionRtlKey
 import it.fast4x.rilauncher.utils.fontTypeKey
+import it.fast4x.rilauncher.utils.getEnum
+import it.fast4x.rilauncher.utils.preferences
+import it.fast4x.rilauncher.utils.rememberPreference
 import it.fast4x.rilauncher.utils.thumbnailRoundnessKey
 import it.fast4x.rilauncher.utils.useSystemFontKey
 
@@ -144,12 +144,15 @@ class MainActivity : AppCompatActivity() {
                 )
             }
 
+            val enableLayoutDirectionRtl by rememberPreference(
+                enableLayoutDirectionRtlKey, false)
+
             CompositionLocalProvider(
                 LocalAppearance provides appearance,
                 LocalIndication provides ripple(bounded = true),
                 LocalRippleConfiguration provides rippleConfiguration,
                 LocalShimmerTheme provides shimmerTheme,
-                LocalLayoutDirection provides LayoutDirection.Ltr,
+                LocalLayoutDirection provides if (enableLayoutDirectionRtl) LayoutDirection.Rtl else LayoutDirection.Ltr,
             ) {
 
                 val navController = rememberNavController()
