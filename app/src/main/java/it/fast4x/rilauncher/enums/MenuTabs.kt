@@ -11,17 +11,6 @@ enum class MenuTabs {
     Reminders,
     Settings;
 
-//    val index: Int
-//        get() = when (this) {
-//            Home -> 0
-//            Shortcuts -> 1
-//            Apps -> 2
-//            Calls -> 3
-//            Messages -> 4
-//            Reminders -> 5
-//            Settings -> 6
-//        }
-
     val icon: Int
     get() = when (this) {
         Home -> R.drawable.ic_launcher_foreground
