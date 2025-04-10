@@ -27,6 +27,9 @@ import androidx.compose.ui.layout.layout
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import it.fast4x.rilauncher.enums.MenuTabs
 import it.fast4x.rilauncher.enums.NavRoutes
 import it.fast4x.rilauncher.enums.NavigationBarType
 import it.fast4x.rilauncher.typography
@@ -39,7 +42,8 @@ import it.fast4x.rilauncher.utils.rememberPreference
 
 @Composable
 inline fun NavigationRail(
-    tabIndex: Int,
+    navController: NavController,
+    tab: MenuTabs,
     crossinline onTabIndexChanged: (Int) -> Unit,
     content: @Composable ColumnScope.(@Composable (Int, String, Int, NavRoutes) -> Unit) -> Unit,
 ) {
@@ -59,16 +63,20 @@ inline fun NavigationRail(
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                val transition = updateTransition(targetState = tabIndex, label = null)
+                //val transition = updateTransition(targetState = tabIndex, label = null)
 
                 content { index, text, icon, route ->
 
-                    val textColor by transition.animateColor(label = "") {
-                        if (it == index) colorPalette.text else colorPalette.textDisabled
-                    }
-                    val dothAlpha by transition.animateFloat(label = "") {
-                        if (it == index) 1f else 0f
-                    }
+                    val textColor = if (index == tab.ordinal) colorPalette.text else colorPalette.textDisabled
+
+                    val dothAlpha = if (index == tab.ordinal) 1f else 0f
+
+//                    val textColor by transition.animateColor(label = "") {
+//                        if (it == index) colorPalette.text else colorPalette.textDisabled
+//                    }
+//                    val dothAlpha by transition.animateFloat(label = "") {
+//                        if (it == index) 1f else 0f
+//                    }
 
                     val textContent: @Composable () -> Unit = {
                         if (navigationBarType == NavigationBarType.IconOnly) {
@@ -125,7 +133,10 @@ inline fun NavigationRail(
 
                     val contentModifier = Modifier
                         .clip(RoundedCornerShape(24.dp))
-                        .clickable(onClick = { onTabIndexChanged(index) })
+                        .clickable(onClick = {
+                            //onTabIndexChanged(index)
+                            navController.navigate(route.name)
+                        })
 
                     if (isLandscape) {
                         Column(

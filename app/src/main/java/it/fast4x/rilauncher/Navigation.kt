@@ -26,7 +26,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import it.fast4x.rilauncher.enums.NavRoutes
 import it.fast4x.rilauncher.enums.TransitionEffect
+import it.fast4x.rilauncher.ui.home.AppsScreen
+import it.fast4x.rilauncher.ui.home.CallsScreen
 import it.fast4x.rilauncher.ui.home.HomeScreen
+import it.fast4x.rilauncher.ui.home.MessagesScreen
+import it.fast4x.rilauncher.ui.home.RemindersScreen
+import it.fast4x.rilauncher.ui.home.SettingsScreen
+import it.fast4x.rilauncher.ui.home.ShortcutsScreen
 import it.fast4x.rilauncher.utils.rememberPreference
 import it.fast4x.rilauncher.utils.transitionEffectKey
 
@@ -43,7 +49,7 @@ fun Navigation(
 
     NavHost(
         navController = navController,
-        startDestination = NavRoutes.home.name,
+        startDestination = NavRoutes.Home.name,
         enterTransition = {
             when (transitionEffect) {
                 TransitionEffect.None -> EnterTransition.None
@@ -92,12 +98,43 @@ fun Navigation(
             if (navController.currentBackStackEntry?.lifecycle?.currentState == Lifecycle.State.RESUMED) navController.popBackStack()
         }
 
-        composable(route = NavRoutes.home.name) {
+        composable(route = NavRoutes.Home.name) {
             HomeScreen(
                 navController = navController,
 
             )
         }
+        composable(route = NavRoutes.Apps.name) {
+            AppsScreen(
+                navController = navController,
+            )
+        }
+        composable(route = NavRoutes.Shortcuts.name) {
+            ShortcutsScreen(
+                navController = navController,
+            )
+        }
+        composable(route = NavRoutes.Calls.name) {
+            CallsScreen(
+                navController = navController,
+            )
+        }
+        composable(route = NavRoutes.Messages.name) {
+            MessagesScreen(
+                navController = navController,
+            )
+        }
+        composable(route = NavRoutes.Reminders.name) {
+            RemindersScreen(
+                navController = navController,
+            )
+        }
+        composable(route = NavRoutes.Settings.name) {
+            SettingsScreen(
+                navController = navController,
+            )
+        }
+
 
     }
 }

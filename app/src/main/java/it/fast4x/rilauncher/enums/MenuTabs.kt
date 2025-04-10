@@ -3,6 +3,7 @@ package it.fast4x.rilauncher.enums
 import it.fast4x.rilauncher.R
 
 enum class MenuTabs {
+    Home,
     Shortcuts,
     Apps,
     Calls,
@@ -10,18 +11,20 @@ enum class MenuTabs {
     Reminders,
     Settings;
 
-    val index: Int
-        get() = when (this) {
-            Shortcuts -> 0
-            Apps -> 1
-            Calls -> 2
-            Messages -> 3
-            Reminders -> 4
-            Settings -> 5
-        }
+//    val index: Int
+//        get() = when (this) {
+//            Home -> 0
+//            Shortcuts -> 1
+//            Apps -> 2
+//            Calls -> 3
+//            Messages -> 4
+//            Reminders -> 5
+//            Settings -> 6
+//        }
 
     val icon: Int
     get() = when (this) {
+        Home -> R.drawable.ic_launcher_foreground
         Shortcuts -> R.drawable.ic_launcher_foreground
         Apps -> R.drawable.ic_launcher_foreground
         Calls -> R.drawable.ic_launcher_foreground
@@ -32,6 +35,7 @@ enum class MenuTabs {
 
     val title: String
     get() = when (this) {
+        Home -> "Home"
         Shortcuts -> "Shortcuts"
         Apps -> "Apps"
         Calls -> "Calls"
@@ -42,6 +46,7 @@ enum class MenuTabs {
 
     val route: NavRoutes
     get() = when (this) {
+        Home -> NavRoutes.Home
         Shortcuts -> NavRoutes.Shortcuts
         Apps -> NavRoutes.Apps
         Calls -> NavRoutes.Calls

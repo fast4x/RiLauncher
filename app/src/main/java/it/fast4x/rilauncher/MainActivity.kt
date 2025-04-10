@@ -154,8 +154,6 @@ class MainActivity : AppCompatActivity() {
 
                 val navController = rememberNavController()
                 Navigation(navController)
-
-                //HomeScreen(navController)
             }
         }
     }

@@ -9,6 +9,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import it.fast4x.rilauncher.R
+import it.fast4x.rilauncher.enums.MenuTabs
 import it.fast4x.rilauncher.tabIndex
 import it.fast4x.rilauncher.typography
 import it.fast4x.rilauncher.ui.components.ScaffoldContainer
@@ -56,7 +57,8 @@ fun HomeScreen(navController: NavHostController) {
 //    }
 
     ScaffoldContainer(
-        tabIndex = tabIndex()
+        navController = navController,
+        tab = MenuTabs.Home
     ) {
         Text(
             text = stringResource(id = R.string.app_name),

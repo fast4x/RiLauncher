@@ -26,6 +26,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import it.fast4x.rilauncher.R
 import it.fast4x.rilauncher.colorPalette
 import it.fast4x.rilauncher.enums.MenuTabs
@@ -37,7 +38,8 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun ScaffoldContainer(
-    tabIndex: Int,
+    navController: NavController,
+    tab: MenuTabs,
     content: @Composable BoxScope.() -> Unit,
 ){
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
@@ -51,7 +53,8 @@ fun ScaffoldContainer(
                 modifier = Modifier.width(100.dp)
             ) {
                 NavigationRail(
-                    tabIndex = tabIndex,
+                    navController = navController,
+                    tab = tab,
                     onTabIndexChanged = { }
                 ) { item ->
                     MenuItems(item)
@@ -81,7 +84,7 @@ fun ScaffoldContainer(
                     .background(Color.Black)
             ){
                 BasicText(
-                    text = MenuTabs.titleOf(tabIndex),
+                    text = tab.title,
                     style = TextStyle(
                         fontFamily = typography().xl.fontFamily,
                         fontSize = typography().xl.semiBold.fontSize,
