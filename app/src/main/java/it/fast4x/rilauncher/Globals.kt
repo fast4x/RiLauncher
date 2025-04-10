@@ -5,7 +5,6 @@ import it.fast4x.rilauncher.enums.NavigationBarType
 import it.fast4x.rilauncher.ui.styling.LocalAppearance
 import it.fast4x.rilauncher.utils.navigationBarTypeKey
 import it.fast4x.rilauncher.utils.rememberPreference
-import it.fast4x.rilauncher.utils.tabIndexKey
 
 @Composable
 fun typography() = LocalAppearance.current.typography

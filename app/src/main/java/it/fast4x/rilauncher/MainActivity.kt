@@ -16,6 +16,7 @@ import androidx.compose.material3.LocalRippleConfiguration
 import androidx.compose.material3.RippleConfiguration
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -44,6 +45,7 @@ import it.fast4x.rilauncher.utils.colorPaletteNameKey
 import it.fast4x.rilauncher.utils.enableLayoutDirectionRtlKey
 import it.fast4x.rilauncher.utils.fontTypeKey
 import it.fast4x.rilauncher.utils.getEnum
+import it.fast4x.rilauncher.utils.isLandscape
 import it.fast4x.rilauncher.utils.preferences
 import it.fast4x.rilauncher.utils.rememberPreference
 import it.fast4x.rilauncher.utils.thumbnailRoundnessKey
@@ -67,16 +69,18 @@ class MainActivity : AppCompatActivity() {
     fun startApp(){
         setContent {
             val systemDarkTheme = isSystemInDarkTheme()
-            enableEdgeToEdge(
-                statusBarStyle = SystemBarStyle.auto(
-                    android.graphics.Color.TRANSPARENT,
-                    android.graphics.Color.TRANSPARENT,
-                ) { systemDarkTheme },
-                navigationBarStyle = SystemBarStyle.auto(
-                    android.graphics.Color.TRANSPARENT,
-                    android.graphics.Color.TRANSPARENT,
-                ) { systemDarkTheme }
-            )
+            LaunchedEffect(Unit, systemDarkTheme, isLandscape) {
+                enableEdgeToEdge(
+                    statusBarStyle = SystemBarStyle.auto(
+                        android.graphics.Color.TRANSPARENT,
+                        android.graphics.Color.TRANSPARENT,
+                    ) { systemDarkTheme },
+                    navigationBarStyle = SystemBarStyle.auto(
+                        android.graphics.Color.TRANSPARENT,
+                        android.graphics.Color.TRANSPARENT,
+                    ) { systemDarkTheme }
+                )
+            }
 
             val colorPaletteMode by rememberPreference(
                 colorPaletteModeKey,
