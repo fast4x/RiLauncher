@@ -10,7 +10,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import it.fast4x.rilauncher.R
 import it.fast4x.rilauncher.enums.MenuTabs
-import it.fast4x.rilauncher.tabIndex
 import it.fast4x.rilauncher.typography
 import it.fast4x.rilauncher.ui.components.ScaffoldContainer
 
