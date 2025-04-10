@@ -1,14 +1,10 @@
 package it.fast4x.rilauncher.ui.components
 
-import androidx.compose.animation.animateColor
-import androidx.compose.animation.core.animateFloat
-import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -28,7 +24,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import it.fast4x.rilauncher.enums.MenuTabs
 import it.fast4x.rilauncher.enums.NavRoutes
 import it.fast4x.rilauncher.enums.NavigationBarType
@@ -70,13 +65,6 @@ inline fun NavigationRail(
                     val textColor = if (index == tab.ordinal) colorPalette.text else colorPalette.textDisabled
 
                     val dothAlpha = if (index == tab.ordinal) 1f else 0f
-
-//                    val textColor by transition.animateColor(label = "") {
-//                        if (it == index) colorPalette.text else colorPalette.textDisabled
-//                    }
-//                    val dothAlpha by transition.animateFloat(label = "") {
-//                        if (it == index) 1f else 0f
-//                    }
 
                     val textContent: @Composable () -> Unit = {
                         if (navigationBarType == NavigationBarType.IconOnly) {

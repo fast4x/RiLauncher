@@ -53,9 +53,9 @@ fun Navigation(
         enterTransition = {
             when (transitionEffect) {
                 TransitionEffect.None -> EnterTransition.None
-                TransitionEffect.Expand -> expandIn(animationSpec = tween(350, easing = LinearOutSlowInEasing), expandFrom = Alignment.TopStart)
-                TransitionEffect.Fade -> fadeIn(animationSpec = tween(350))
-                TransitionEffect.Scale -> scaleIn(animationSpec = tween(350))
+                TransitionEffect.Expand -> expandIn(animationSpec = tween(700, easing = LinearOutSlowInEasing), expandFrom = Alignment.TopStart)
+                TransitionEffect.Fade -> fadeIn(animationSpec = tween(700))
+                TransitionEffect.Scale -> scaleIn(animationSpec = tween(700))
                 TransitionEffect.SlideVertical -> slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Up)
                 TransitionEffect.SlideHorizontal -> slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Left)
             }
@@ -63,9 +63,9 @@ fun Navigation(
         exitTransition = {
             when (transitionEffect) {
                 TransitionEffect.None -> ExitTransition.None
-                TransitionEffect.Expand -> shrinkOut(animationSpec = tween(350, easing = FastOutSlowInEasing),shrinkTowards = Alignment.TopStart)
-                TransitionEffect.Fade -> fadeOut(animationSpec = tween(350))
-                TransitionEffect.Scale -> scaleOut(animationSpec = tween(350))
+                TransitionEffect.Expand -> shrinkOut(animationSpec = tween(700, easing = FastOutSlowInEasing),shrinkTowards = Alignment.TopStart)
+                TransitionEffect.Fade -> fadeOut(animationSpec = tween(700))
+                TransitionEffect.Scale -> scaleOut(animationSpec = tween(700))
                 TransitionEffect.SlideVertical -> slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Down)
                 TransitionEffect.SlideHorizontal -> slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Right)
             }
@@ -73,9 +73,9 @@ fun Navigation(
         popEnterTransition = {
             when (transitionEffect) {
                 TransitionEffect.None -> EnterTransition.None
-                TransitionEffect.Expand -> expandIn(animationSpec = tween(350, easing = LinearOutSlowInEasing), expandFrom = Alignment.TopStart)
-                TransitionEffect.Fade -> fadeIn(animationSpec = tween(350))
-                TransitionEffect.Scale -> scaleIn(animationSpec = tween(350))
+                TransitionEffect.Expand -> expandIn(animationSpec = tween(700, easing = LinearOutSlowInEasing), expandFrom = Alignment.TopStart)
+                TransitionEffect.Fade -> fadeIn(animationSpec = tween(700))
+                TransitionEffect.Scale -> scaleIn(animationSpec = tween(700))
                 TransitionEffect.SlideVertical -> slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Up)
                 TransitionEffect.SlideHorizontal -> slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Left)
             }
@@ -83,9 +83,9 @@ fun Navigation(
         popExitTransition = {
             when (transitionEffect) {
                 TransitionEffect.None -> ExitTransition.None
-                TransitionEffect.Expand -> shrinkOut(animationSpec = tween(350, easing = FastOutSlowInEasing),shrinkTowards = Alignment.TopStart)
-                TransitionEffect.Fade -> fadeOut(animationSpec = tween(350))
-                TransitionEffect.Scale -> scaleOut(animationSpec = tween(350))
+                TransitionEffect.Expand -> shrinkOut(animationSpec = tween(700, easing = FastOutSlowInEasing),shrinkTowards = Alignment.TopStart)
+                TransitionEffect.Fade -> fadeOut(animationSpec = tween(700))
+                TransitionEffect.Scale -> scaleOut(animationSpec = tween(700))
                 TransitionEffect.SlideVertical -> slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Down)
                 TransitionEffect.SlideHorizontal -> slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Right)
             }
