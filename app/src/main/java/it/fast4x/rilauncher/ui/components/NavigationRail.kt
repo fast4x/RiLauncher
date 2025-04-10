@@ -47,7 +47,6 @@ inline fun NavigationRail(
 
     val navigationBarType by rememberPreference(navigationBarTypeKey, NavigationBarType.IconAndText)
 
-
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
@@ -83,8 +82,10 @@ inline fun NavigationRail(
                                     color = colorPalette.text,
                                 ),
                                 modifier = Modifier
-                                    .vertical(enabled = !isLandscape)
-                                    .rotate(if (isLandscape) 0f else -90f)
+//                                    .vertical(enabled = !isLandscape)
+//                                    .rotate(if (isLandscape) 0f else -90f)
+                                    .vertical(enabled = true)
+                                    .rotate(-90f)
                                     .padding(horizontal = 16.dp)
                             )
                         }
@@ -110,7 +111,7 @@ inline fun NavigationRail(
                                     .graphicsLayer {
                                         alpha = dothAlpha
                                         translationX = (1f - dothAlpha) * -48.dp.toPx()
-                                        rotationZ = if (isLandscape) 0f else -90f
+                                        rotationZ =-90f // if (isLandscape) 0f else -90f
                                     }
                                     .size(24.dp)
                             )
@@ -123,25 +124,34 @@ inline fun NavigationRail(
                             navController.navigate(route.name)
                         })
 
-                    if (isLandscape) {
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            modifier = contentModifier
-                                .padding(vertical = 8.dp)
-                        ) {
-                            iconContent()
-                            textContent()
-                        }
-                    } else {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            modifier = contentModifier
-                                .padding(horizontal = 8.dp)
-                        ) {
-                            iconContent()
-                            textContent()
-                        }
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = contentModifier
+                            .padding(horizontal = 8.dp)
+                    ) {
+                        iconContent()
+                        textContent()
                     }
+
+//                    if (isLandscape) {
+//                        Column(
+//                            horizontalAlignment = Alignment.CenterHorizontally,
+//                            modifier = contentModifier
+//                                .padding(vertical = 8.dp)
+//                        ) {
+//                            iconContent()
+//                            textContent()
+//                        }
+//                    } else {
+//                        Row(
+//                            verticalAlignment = Alignment.CenterVertically,
+//                            modifier = contentModifier
+//                                .padding(horizontal = 8.dp)
+//                        ) {
+//                            iconContent()
+//                            textContent()
+//                        }
+//                    }
                 }
             }
 

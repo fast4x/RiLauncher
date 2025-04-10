@@ -104,7 +104,7 @@ class MainActivity : AppCompatActivity() {
                     var colorPalette =
                         colorPaletteOf(colorPaletteName, colorPaletteMode, !lightTheme)
 
-                    val fontType = getEnum(fontTypeKey, FontType.Codystar)
+                    val fontType = getEnum(fontTypeKey, FontType.Rubik)
 
                     //setSystemBarAppearance(colorPalette.isDark)
 
