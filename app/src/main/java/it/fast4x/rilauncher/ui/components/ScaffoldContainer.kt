@@ -22,18 +22,14 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import it.fast4x.rilauncher.R
 import it.fast4x.rilauncher.colorPalette
 import it.fast4x.rilauncher.enums.MenuTabs
 import it.fast4x.rilauncher.typography
 import it.fast4x.rilauncher.ui.home.MenuItems
 import it.fast4x.rilauncher.ui.styling.semiBold
-import it.fast4x.rilauncher.ui.styling.typographyOf
 import kotlinx.coroutines.launch
 
 @Composable
@@ -54,8 +50,7 @@ fun ScaffoldContainer(
             ) {
                 NavigationRail(
                     navController = navController,
-                    tab = tab,
-                    onTabIndexChanged = { }
+                    tab = tab
                 ) { item ->
                     MenuItems(item)
                 }

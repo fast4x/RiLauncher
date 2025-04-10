@@ -39,7 +39,6 @@ import it.fast4x.rilauncher.utils.rememberPreference
 inline fun NavigationRail(
     navController: NavController,
     tab: MenuTabs,
-    crossinline onTabIndexChanged: (Int) -> Unit,
     content: @Composable ColumnScope.(@Composable (Int, String, Int, NavRoutes) -> Unit) -> Unit,
 ) {
     val (colorPalette, typography) = LocalAppearance.current
@@ -58,7 +57,6 @@ inline fun NavigationRail(
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                //val transition = updateTransition(targetState = tabIndex, label = null)
 
                 content { index, text, icon, route ->
 
@@ -122,7 +120,6 @@ inline fun NavigationRail(
                     val contentModifier = Modifier
                         .clip(RoundedCornerShape(24.dp))
                         .clickable(onClick = {
-                            //onTabIndexChanged(index)
                             navController.navigate(route.name)
                         })
 
