@@ -53,16 +53,9 @@ import it.fast4x.rilauncher.utils.useSystemFontKey
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        val insetsController = WindowCompat.getInsetsController(window, window.decorView)
-        insetsController.apply {
-            hide(WindowInsetsCompat.Type.statusBars())
-            hide(WindowInsetsCompat.Type.navigationBars())
-            systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        }
 
         startApp()
+        super.onCreate(savedInstanceState)
     }
 
     @OptIn(ExperimentalMaterial3Api::class)
@@ -80,6 +73,12 @@ class MainActivity : AppCompatActivity() {
                         android.graphics.Color.TRANSPARENT,
                     ) { systemDarkTheme }
                 )
+                val insetsController = WindowCompat.getInsetsController(window, window.decorView)
+                insetsController.apply {
+                    hide(WindowInsetsCompat.Type.statusBars())
+                    hide(WindowInsetsCompat.Type.navigationBars())
+                    systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+                }
             }
 
             val colorPaletteMode by rememberPreference(
@@ -104,7 +103,7 @@ class MainActivity : AppCompatActivity() {
                     var colorPalette =
                         colorPaletteOf(colorPaletteName, colorPaletteMode, !lightTheme)
 
-                    val fontType = getEnum(fontTypeKey, FontType.Rubik)
+                    val fontType = getEnum(fontTypeKey, FontType.Doto)
 
                     //setSystemBarAppearance(colorPalette.isDark)
 

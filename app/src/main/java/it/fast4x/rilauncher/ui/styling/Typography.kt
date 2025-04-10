@@ -68,6 +68,7 @@ fun typographyOf(color: Color, useSystemFont: Boolean, applyFontPadding: Boolean
                             FontType.Rubik -> R.font.rubik_w300
                             FontType.Poppins -> R.font.poppins_w300
                             FontType.Codystar -> R.font.codystar_w300
+                            FontType.Doto -> R.font.doto_w300
                         },
                         weight = FontWeight.Light
                     ),
@@ -76,6 +77,7 @@ fun typographyOf(color: Color, useSystemFont: Boolean, applyFontPadding: Boolean
                             FontType.Rubik -> R.font.rubik_w400
                             FontType.Poppins -> R.font.poppins_w400
                             FontType.Codystar -> R.font.codystar_w400
+                            FontType.Doto -> R.font.doto_w400
                         },
                         weight = FontWeight.Normal
                     ),
@@ -84,6 +86,7 @@ fun typographyOf(color: Color, useSystemFont: Boolean, applyFontPadding: Boolean
                             FontType.Rubik -> R.font.rubik_w500
                             FontType.Poppins -> R.font.poppins_w500
                             FontType.Codystar -> R.font.codystar_w400
+                            FontType.Doto -> R.font.doto_w500
                         },
                         weight = FontWeight.Medium
                     ),
@@ -92,6 +95,7 @@ fun typographyOf(color: Color, useSystemFont: Boolean, applyFontPadding: Boolean
                             FontType.Rubik -> R.font.rubik_w600
                             FontType.Poppins -> R.font.poppins_w600
                             FontType.Codystar -> R.font.codystar_w400
+                            FontType.Doto -> R.font.doto_w600
                         },
                         weight = FontWeight.SemiBold
                     ),
@@ -100,6 +104,7 @@ fun typographyOf(color: Color, useSystemFont: Boolean, applyFontPadding: Boolean
                             FontType.Rubik -> R.font.rubik_w700
                             FontType.Poppins -> R.font.poppins_w700
                             FontType.Codystar -> R.font.codystar_w400
+                            FontType.Doto -> R.font.doto_w700
                         },
                         weight = FontWeight.Bold
                     ),

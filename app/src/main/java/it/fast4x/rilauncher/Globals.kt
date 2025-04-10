@@ -14,3 +14,6 @@ fun colorPalette() = LocalAppearance.current.colorPalette
 
 @Composable
 fun navigationBarType() = rememberPreference(navigationBarTypeKey, NavigationBarType.IconAndText)
+
+@Composable
+fun thumbnailRoundness() = LocalAppearance.current.thumbnailShape

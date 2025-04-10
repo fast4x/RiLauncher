@@ -25,9 +25,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import it.fast4x.rilauncher.R
 import it.fast4x.rilauncher.colorPalette
 import it.fast4x.rilauncher.enums.MenuTabs
 import it.fast4x.rilauncher.typography
+import it.fast4x.rilauncher.ui.components.themed.IconButton
 import it.fast4x.rilauncher.ui.home.MenuItems
 import it.fast4x.rilauncher.ui.styling.semiBold
 import kotlinx.coroutines.launch
@@ -59,9 +61,10 @@ fun ScaffoldContainer(
     ) {
         Scaffold(
             floatingActionButton = {
-                ExtendedFloatingActionButton(
-                    text = { Text("Try swipe left to right") },
-                    icon = { Icon(Icons.Filled.Add, contentDescription = "") },
+                IconButton(
+                    icon = R.drawable.circle,
+                    size = 32.dp,
+                    color = colorPalette().text,
                     onClick = {
                         scope.launch {
                             drawerState.apply {
@@ -70,6 +73,18 @@ fun ScaffoldContainer(
                         }
                     }
                 )
+
+//                ExtendedFloatingActionButton(
+//                    text = { Text("Try swipe left to right") },
+//                    icon = { Icon(Icons.Filled.Add, contentDescription = "") },
+//                    onClick = {
+//                        scope.launch {
+//                            drawerState.apply {
+//                                if (isClosed) open() else close()
+//                            }
+//                        }
+//                    }
+//                )
             }
         ) { contentPadding ->
             contentPadding.calculateTopPadding()
