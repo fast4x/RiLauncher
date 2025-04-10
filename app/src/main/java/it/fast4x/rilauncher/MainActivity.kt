@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.navigation.compose.rememberNavController
 import com.valentinilk.shimmer.LocalShimmerTheme
 import com.valentinilk.shimmer.defaultShimmerTheme
 import it.fast4x.rilauncher.enums.ColorPaletteMode
@@ -51,7 +52,7 @@ import it.fast4x.rilauncher.utils.useSystemFontKey
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        enableEdgeToEdge()
         val insetsController = WindowCompat.getInsetsController(window, window.decorView)
         insetsController.apply {
             hide(WindowInsetsCompat.Type.statusBars())
@@ -150,7 +151,11 @@ class MainActivity : AppCompatActivity() {
                 LocalShimmerTheme provides shimmerTheme,
                 LocalLayoutDirection provides LayoutDirection.Ltr,
             ) {
-                HomeScreen()
+
+                val navController = rememberNavController()
+                Navigation(navController)
+
+                //HomeScreen(navController)
             }
         }
     }

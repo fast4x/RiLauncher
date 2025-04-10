@@ -32,6 +32,7 @@ import it.fast4x.rilauncher.enums.MenuTabs
 import it.fast4x.rilauncher.typography
 import it.fast4x.rilauncher.ui.home.MenuItems
 import it.fast4x.rilauncher.ui.styling.semiBold
+import it.fast4x.rilauncher.ui.styling.typographyOf
 import kotlinx.coroutines.launch
 
 @Composable
@@ -82,6 +83,7 @@ fun ScaffoldContainer(
                 BasicText(
                     text = MenuTabs.titleOf(tabIndex),
                     style = TextStyle(
+                        fontFamily = typography().xl.fontFamily,
                         fontSize = typography().xl.semiBold.fontSize,
                         fontWeight = typography().xl.semiBold.fontWeight,
                         color = colorPalette().text,

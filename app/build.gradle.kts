@@ -78,11 +78,13 @@ dependencies {
     implementation(libs.compose.activity)
     implementation(libs.compose.ripple)
     implementation(libs.compose.shimmer)
-    implementation(libs.material3)
+    implementation(libs.compose.navigation)
+    implementation(libs.compose.material3)
     implementation(libs.kotlin.coroutines)
     implementation(libs.kotlin.datetime)
     implementation(libs.timber)
     implementation(libs.palette)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

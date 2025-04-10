@@ -19,6 +19,7 @@ const val applyFontPaddingKey = "applyFontPadding"
 const val fontTypeKey = "fontType"
 const val navigationBarTypeKey = "navigationBarType"
 const val tabIndexKey = "tabIndex"
+const val transitionEffectKey = "transitionEffect"
 
 
 
