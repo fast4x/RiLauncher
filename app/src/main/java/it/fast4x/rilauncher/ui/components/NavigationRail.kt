@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.layout
@@ -29,6 +30,7 @@ import it.fast4x.rilauncher.enums.NavRoutes
 import it.fast4x.rilauncher.enums.NavigationBarType
 import it.fast4x.rilauncher.typography
 import it.fast4x.rilauncher.ui.styling.LocalAppearance
+import it.fast4x.rilauncher.ui.styling.center
 import it.fast4x.rilauncher.ui.styling.semiBold
 import it.fast4x.rilauncher.utils.isLandscape
 import it.fast4x.rilauncher.utils.navigationBarTypeKey
@@ -59,9 +61,9 @@ inline fun NavigationRail(
 
                 content { index, text, icon, route ->
 
-                    val textColor = if (index == tab.ordinal) colorPalette.text else colorPalette.textDisabled
+                    val textColor = if (route == tab.route) colorPalette.text else colorPalette.textDisabled
 
-                    val dothAlpha = if (index == tab.ordinal) 1f else 0f
+                    val dothAlpha = if (route == tab.route) 1f else 0f
 
                     val textContent: @Composable () -> Unit = {
                         if (navigationBarType == NavigationBarType.IconOnly) {
@@ -79,7 +81,7 @@ inline fun NavigationRail(
                                 style = TextStyle(
                                     fontSize = typography().xs.semiBold.fontSize,
                                     fontWeight = typography.xs.semiBold.fontWeight,
-                                    color = colorPalette.text,
+                                    color = Color(textColor.value)
                                 ),
                                 modifier = Modifier
 //                                    .vertical(enabled = !isLandscape)
